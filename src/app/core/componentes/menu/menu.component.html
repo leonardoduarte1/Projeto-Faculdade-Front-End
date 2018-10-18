@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+
+	<a class="navbar-brand" href="#"><img src="assets/logo.jpg" alt=""></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+	 aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav">
+			<li class="nav-item active">
+				<a class="nav-link" href="#">Página Inicial</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/meu-time">Meu time</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/partidas/tempo-real">Partidas</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link disabled" href="#">Torneios</a>
+			</li>
+		</ul>
+
+		<form class="form-inline" style="width:50%;margin-left: 5%;">
+			<i class="material-icons" style="position:absolute;    margin-left: 8px;
+    color: #27866b;">
+                search
+            </i>
+			<input class="form-control campo-busca" type="search" placeholder="Pesquise pelo nome do time ou por torneios" aria-label="Search">
+
+		</form>
+	</div>
+	<ul class="navbar-nav nav justify-content-end">
+		<li class="nav-item">
+			<a class="nav-link active" href="#"><i class="material-icons">
+                    event_note
+                </i></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#"><i class="material-icons">
+                    notifications
+                </i></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link disabled" href="#"><i class="material-icons">
+                    settings
+                </i></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#" data-toggle="modal" data-target="#modalExemplo">
+                <i class="material-icons">
+                    info
+                </i></a>
+		</li>
+	</ul>
+</nav>
