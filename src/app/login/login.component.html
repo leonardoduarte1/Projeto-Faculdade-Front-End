@@ -5,9 +5,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="banner">
-							<h3><i class="material-icons alinhar-icones">
-									whatshot
-									</i> NOME</h3>
+							<img src="assets/logo.jpg" width="200" alt="">
 						</div>
 					</div>
 				</div>
@@ -22,18 +20,19 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							<form action="">
+							<form (ngSubmit)="logar()">
 								<div class="form-group">
 									<label for="">E-mail</label>
-									<input type="text" class="form-control">
+									<input type="text" class="form-control" required [(ngModel)]="email" name="email">
 								</div>
 
 
 								<div class="form-group">
 									<label for="">Senha</label>
-									<input type="password" class="form-control">
+									<input type="password" class="form-control" required [(ngModel)]="senha" name="senha">
 								</div>
 
+								<p>{{mensagem}}</p>
 
 								<div class="form-group text-center">
 									<button class="btn btn-primary">ENTRAR</button>

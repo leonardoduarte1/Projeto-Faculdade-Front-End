@@ -9,32 +9,39 @@ import { CadastroComponent } from "./cadastro/cadastro.component";
 import { LoginComponent } from "./login/login.component";
 import { JogadoresComponent } from "./jogadores/jogadores.component";
 import { PartidasComponent } from "./partidas/partidas.component";
+import { AutenticacaoGuard } from "./core/servicos/autenticacao-guard.service";
 
 
 const routes: Routes = [
 	{
 		path: '',
-		component: HomeComponent
+		component: HomeComponent,
+		canActivate: [AutenticacaoGuard]
 	},
 	{
 		path: 'meu-time',
-		component: MeuTimeComponent
+		component: MeuTimeComponent,
+		canActivate: [AutenticacaoGuard]
 	},
 	{
 		path: 'meu-time/adicionar-jogador',
-		component: JogadoresComponent
+		component: JogadoresComponent,
+		canActivate: [AutenticacaoGuard]
 	},
 	{
 		path: 'partidas/tempo-real',
-		component: PartidasComponent
+		component: PartidasComponent,
+		canActivate: [AutenticacaoGuard]
 	},
 	{
 		path: 'partidas/inicio',
-		component: BuscarPartidasComponent
+		component: BuscarPartidasComponent,
+		canActivate: [AutenticacaoGuard]
 	},
 	{
 		path: 'partidas/marcar',
-		component: MarcacaoComponent
+		component: MarcacaoComponent,
+		canActivate: [AutenticacaoGuard]
 	},
 	{
 		path: 'cadastro',
@@ -46,7 +53,8 @@ const routes: Routes = [
 	},
 	{
 		path: 'torneios/inicio',
-		component: BuscarPartidasComponent
+		component: BuscarPartidasComponent,
+		canActivate: [AutenticacaoGuard]
 	},
 
 ];

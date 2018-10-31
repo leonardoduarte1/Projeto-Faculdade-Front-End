@@ -1,13 +1,11 @@
 <div class="container">
 	<div class="row justify-content-center">
-		<div class="col-md-5">
+		<div class="col-md-6">
 			<div class="painel-cadastro">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="banner">
-							<h3><i class="material-icons alinhar-icones">
-									whatshot
-									</i> NOME</h3>
+							<img src="assets/logo.jpg" width="200" alt="">
 						</div>
 					</div>
 				</div>
@@ -22,10 +20,10 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							<form action="">
+							<form #timeForm="ngForm" (ngSubmit)="cadastrarTime()">
 								<div class="form-group">
 									<label for="">Nome do Time</label>
-									<input type="text" class="form-control">
+									<input type="text" class="form-control" required [(ngModel)]="time.Nome" name="Nome">
 								</div>
 
 								<div class="form-group">
@@ -35,48 +33,51 @@
 
 								<div class="form-group">
 									<label for="">Nome do Proprietário</label>
-									<input type="text" class="form-control">
+									<input type="text" class="form-control" required [(ngModel)]="time.Proprietario" name="Proprietario">
 								</div>
 
 								<div class="form-group">
 									<label for="">E-mail</label>
-									<input type="text" class="form-control">
+									<input type="text" class="form-control" required [(ngModel)]="time.Email" name="Email">
 								</div>
 
 								<div class="form-group">
 									<label for="">Celular</label>
-									<input type="text" class="form-control">
+									<input type="text" class="form-control" required [(ngModel)]="time.Telefone" name="Telefone">
 								</div>
 
 								<div class="form-group">
 									<label for="">Estado</label>
-									<select name="" id="" class="form-control">
-										<option>Selecione...</option>
+									<select (change)="comboCidades($event.target.value)" class="form-control" required [(ngModel)]="time.IdEstado" name="IdEstado">
+										<option selected>Selecione...</option>
+										<option *ngFor="let estado of estados" value="{{estado.Id}}">{{estado.Nome}}</option>
 									</select>
 								</div>
 
 								<div class="form-group">
 									<label for="">Cidade</label>
-									<select name="" id="" class="form-control">
+									<select (change)="comboBairros($event.target.value)" class="form-control" required [(ngModel)]="time.IdCidade" name="IdCidade">
 										<option>Selecione...</option>
+										<option *ngFor="let cidade of cidades" value="{{cidade.Id}}">{{cidade.Nome}}</option>
 									</select>
 								</div>
 
 								<div class="form-group">
 									<label for="">Bairro</label>
-									<select name="" id="" class="form-control">
+									<select class="form-control" required [(ngModel)]="time.IdBairro" name="IdBairro">
 										<option>Selecione...</option>
+										<option *ngFor="let bairro of bairros" value="{{bairro.Id}}">{{bairro.Nome}}</option>
 									</select>
 								</div>
 
 								<div class="form-group">
 									<label for="">Senha de Acesso</label>
-									<input type="password" class="form-control">
+									<input type="password" class="form-control" required>
 								</div>
 
 								<div class="form-group">
 									<label for="">Confirmar Senha</label>
-									<input type="password" class="form-control">
+									<input type="password" class="form-control" required [(ngModel)]="time.Senha" name="Senha">
 								</div>
 
 								<div class="form-group text-center">

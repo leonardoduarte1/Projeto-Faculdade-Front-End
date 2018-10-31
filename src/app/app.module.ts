@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRouter } from './app.router';
 
@@ -32,6 +33,7 @@ import { PartidasComponent } from './partidas/partidas.component';
 	imports: [
 		AppRouter,
 		BrowserModule,
+		FormsModule,
 		CoreModule
 	],
 	providers: [],

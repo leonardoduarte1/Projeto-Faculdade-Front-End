@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewEncapsulation } from "@angular/core";
+import { TimeService } from "../core/servicos/time.service";
+import { Time } from "../core/model/time.model";
+import { ParametrosService } from "../core/servicos/parametros.service";
+import { Router } from "@angular/router";
 
 @Component({
 	selector: 'app-cadastro',
@@ -9,9 +13,36 @@ import { ViewEncapsulation } from "@angular/core";
 })
 export class CadastroComponent implements OnInit {
 
-	constructor() { }
+	public time = new Time();
+	public estados: any;
+	public cidades: any;
+	public bairros: any;
+	constructor(
+		private timeService: TimeService,
+		private parametros: ParametrosService,
+		private router: Router) { }
 
 	ngOnInit() {
+		this.parametros.getEstados()
+			.subscribe((resposta) => this.estados = resposta)
+	}
+
+	cadastrarTime() {
+		this.timeService.cadastrarTime(this.time).subscribe((resposta) => {
+			if (resposta) {
+				this.router.navigate(["/entrar"]);
+			}
+		})
+	}
+
+	comboCidades(idEstado) {
+		this.parametros.getCidades(idEstado)
+			.subscribe((resposta) => this.cidades = resposta)
+	}
+
+	comboBairros(idCidade) {
+		this.parametros.getBairros(idCidade)
+			.subscribe((resposta) => this.bairros = resposta)
 	}
 
 }

@@ -5,7 +5,7 @@
 				<div class="row">
 					<div class="col-md-auto">
 						<h3>
-							Diferenciado FC
+							{{time.Nome}}
 						</h3>
 						<!-- <hr> -->
 					</div>
@@ -103,28 +103,24 @@
 					<div class="col-md-6">
 
 						<h4>Elenco</h4>
-						<div class="table-responsive">
+						<div class="table-responsive" *ngIf="jogadores.length > 0; else elseBlock">
 							<table class="table table-borderless">
-								<caption>Técnico: Leonardo Duarte</caption>
+								<caption>Técnico: {{time.Proprietario}}</caption>
 								<tbody>
-									<tr>
-										<td>GOL</td>
-										<td>Leonardo</td>
-										<td>1</td>
-									</tr>
-									<tr>
-										<td>ZAG</td>
-										<td>Pedro</td>
-										<td>3</td>
+									<tr *ngFor="let jogador of jogadores">
+										<td>{{ jogador.IdPosicao }}</td>
+										<td>{{ jogador.Nome }}</td>
+										<td>{{ jogador.IdPosicao }}</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
+						<ng-template #elseBlock>Nenhum jogador cadastrado ainda.</ng-template>
 					</div>
 
-					<div class="col-md-6">
-						<div class="center-block">
-							<img src="assets/350x150.png" alt="">
+					<div class="col-md-6 ">
+						<div class="center-block ">
+							<img src="assets/350x150.png " alt=" ">
 						</div>
 
 					</div>
