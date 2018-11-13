@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-11">
+		<div class="col-md-12">
 			<div class="painel">
 				<div class="row">
 					<div class="col-md-auto">
@@ -38,7 +38,7 @@
 						<h4>Sua Escalação</h4>
 					</div>
 					<div class="col-md-6">
-						<h4 class="text-right">0/18</h4>
+						<h4 class="text-right">{{jogadores.length}}/18</h4>
 					</div>
 				</div>
 
@@ -58,10 +58,12 @@
 								<input type="text" class="form-control" required [(ngModel)]="jogador.Telefone" name="Telefone">
 							</div>
 							<div class="form-group">
-								<label for="">Posição</label>
+								<label>Posição</label>
 								<select class="form-control" required [(ngModel)]="jogador.IdPosicao" name="IdPosicao">
-									<option>Selecione...</option>
-									<option value="1">aa</option>
+									<option value="0" >Selecione...</option>
+									<option *ngFor="let posicao of posicoes" value="{{posicao.Id}}">
+										{{posicao.Nome}}
+									</option>
 								</select>
 							</div>
 							<hr>
@@ -74,44 +76,13 @@
 					<div class="offset-md-1 col-md-6">
 
 						<h4>Elenco</h4>
-						<div class="table-responsive">
+						<div class="table-responsive" *ngIf="jogadores.length > 0; else elseBlock">
 							<table class="table table-borderless">
-								<caption>Técnico: Leonardo Duarte</caption>
-								<thead>
-									<tr>
-										<th>Posição</th>
-										<th>Nome</th>
-										<th>Número</th>
-										<th></th>
-									</tr>
-								</thead>
+								<caption>Técnico: {{time.Proprietario}}</caption>
 								<tbody>
-									<tr>
-										<td>GOL</td>
-										<td>Leonardo</td>
-										<td>1</td>
-										<td>
-											<a href="" class="actions">
-												<i class="material-icons">
-													description
-												</i>
-											</a>
-											<a href="" class="actions">
-												<i class="material-icons">
-													edit
-												</i>
-											</a>
-											<a href="" class="actions text-danger">
-												<i class="material-icons">
-													clear
-												</i>
-											</a>
-										</td>
-									</tr>
-									<tr>
-										<td>ZAG</td>
-										<td>Pedro</td>
-										<td>3</td>
+									<tr *ngFor="let jogador of jogadores">
+										<td>{{ jogador.Posicao.Sigla }}</td>
+										<td>{{ jogador.Nome }}</td>
 										<td>
 											<a href="" class="actions">
 												<i class="material-icons">
@@ -133,11 +104,13 @@
 								</tbody>
 							</table>
 						</div>
+						<ng-template #elseBlock>Nenhum jogador cadastrado ainda.</ng-template>
+
+
+
+
 					</div>
-
-
 				</div>
 			</div>
 		</div>
 	</div>
-</div>

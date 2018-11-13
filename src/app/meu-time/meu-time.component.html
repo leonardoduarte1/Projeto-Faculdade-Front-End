@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-11">
+		<div class="col-md-12">
 			<div class="painel">
 				<div class="row">
 					<div class="col-md-auto">
@@ -108,9 +108,8 @@
 								<caption>Técnico: {{time.Proprietario}}</caption>
 								<tbody>
 									<tr *ngFor="let jogador of jogadores">
-										<td>{{ jogador.IdPosicao }}</td>
+										<td>{{ jogador.Posicao.Sigla }}</td>
 										<td>{{ jogador.Nome }}</td>
-										<td>{{ jogador.IdPosicao }}</td>
 									</tr>
 								</tbody>
 							</table>

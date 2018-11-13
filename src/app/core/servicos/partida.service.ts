@@ -3,13 +3,13 @@ import { HttpClient } from '@angular/common/http';
 
 import { CONFIG } from "../../../environments/environment";
 
-import { Time } from "../model/time.model";
+import { Partida } from "../model/partida.model";
 import { Observable } from "rxjs";
 import { HttpHeaders, HttpParams } from "@angular/common/http";
 
 
 @Injectable()
-export class TimeService {
+export class PartidaService {
 
 	private httpOptions = {
 		headers: new HttpHeaders({
@@ -23,7 +23,7 @@ export class TimeService {
 
 	constructor(private http: HttpClient) { }
 
-	public getTimes() {
+	public getPartidas() {
 
 		let params = new HttpParams();
 
@@ -32,7 +32,7 @@ export class TimeService {
 		}
 
 
-		return this.http.get(CONFIG.URL_API + "/api/time/listar", { params });
+		return this.http.get(CONFIG.URL_API + "/api/partida/listar", { params });
 	}
 
 	public buscarTimePeloId(id) {
@@ -41,12 +41,10 @@ export class TimeService {
 	}
 
 
-	public cadastrarTime(time: Time) {
-
-		time.Senha = btoa(time.Senha);
+	public inserirPartida(partida: Partida) {
 
 
-		return this.http.post<Time>(CONFIG.URL_API + "/api/time", time, this.httpOptions);
+		return this.http.post<Partida>(CONFIG.URL_API + "/api/partida", partida, this.httpOptions);
 
 	}
 }

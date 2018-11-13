@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 
 import { AppRouter } from './app.router';
 
@@ -34,6 +35,7 @@ import { PartidasComponent } from './partidas/partidas.component';
 		AppRouter,
 		BrowserModule,
 		FormsModule,
+		NgxMaskModule.forRoot(),
 		CoreModule
 	],
 	providers: [],

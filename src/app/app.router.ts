@@ -39,7 +39,7 @@ const routes: Routes = [
 		canActivate: [AutenticacaoGuard]
 	},
 	{
-		path: 'partidas/marcar',
+		path: 'partidas/marcar/:id',
 		component: MarcacaoComponent,
 		canActivate: [AutenticacaoGuard]
 	},

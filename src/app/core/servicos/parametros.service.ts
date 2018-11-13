@@ -21,4 +21,12 @@ export class ParametrosService {
 	public getBairros(idCidade) {
 		return this.http.get(CONFIG.URL_API + "/api/parametros/bairros/" + idCidade);
 	}
+
+	public getPosicoes() {
+		return this.http.get(CONFIG.URL_API + "/api/parametros/posicoes");
+	}
+
+	public getLocaisPartida() {
+		return this.http.get(CONFIG.URL_API + "/api/parametros/localpartida");
+	}
 }

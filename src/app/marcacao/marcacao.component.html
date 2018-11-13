@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-11">
+		<div class="col-md-12">
 			<div class="painel">
 				<div class="row mb-4">
 					<div class="col-md-12">
@@ -16,75 +16,91 @@
 					</div>
 
 				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<h5><i class="material-icons alinhar-icones">
+				<form (ngSubmit)="onSubmit()">
+					<div class="row">
+						<div class="col-md-5">
+							<h5><i class="material-icons alinhar-icones">
 									timer
 									</i> Hórario da Partida</h5>
-						<p>Escolha o hórario da partida</p>
-						<div>
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input" id="customCheck1">
-								<label class="custom-control-label" for="customCheck1">10/11/2018 - 20:30</label>
-							</div>
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input" id="customCheck1">
-								<label class="custom-control-label" for="customCheck1">10/11/2018 - 20:30</label>
-							</div>
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input" id="customCheck1">
-								<label class="custom-control-label" for="customCheck1">10/11/2018 - 20:30</label>
+							<div class="form-group">
+								<label>Escolha o hórario da partida</label>
+								<input type="text" class="form-control" mask="00/00/0000 00:00" required [(ngModel)]="partida.DataPartida" name="DataPartida"
+								 placeholder="Ex: 20/11/2018 20:00" [dropSpecialCharacters]="false">
 							</div>
 						</div>
+
+						<div class="col-md-7">
+							<h5 class="text-center">Adversário</h5>
+							<div class="text-center">
+								<h3>{{ timeAdversario.Nome}}</h3>
+								<p class="mb-0">{{ timeAdversario.Cidade.Nome}}/{{ timeAdversario.Estado.Sigla}}</p>
+								<p class="mb-0">{{ timeAdversario.Bairro.Nome}}</p>
+							</div>
+						</div>
+
 					</div>
-					<div class="col-md-6">
-						<h5><i class="material-icons alinhar-icones">
+					<div class="row mb-5">
+						<div class="col-md-12">
+							<h5><i class="material-icons alinhar-icones">
 								location_on
 								</i> Local da Partida</h5>
-						<p>Escolha o local da partida</p>
+							<p>Escolha o local da partida</p>
 
-						<div>
-							<div class="form-group">
-								<i class="material-icons" style="    position: absolute;
+							<div>
+								<div class="form-group">
+									<i class="material-icons" style="    position: absolute;
 								right: 30px;
 								top: 85px;
 								color: #cccccc;"> search </i>
-								<input type="text" class="form-control" placeholder="Busque pelo nome da quadra...">
+									<input type="text" class="form-control" placeholder="Busque pelo nome da quadra...">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4" *ngFor="let local of locais">
+									<div class="estadio" (click)="localSelecionado(local)" id="{{local.Id}}" [ngClass]="{'ativo': local.Ativo}">
+
+										<h3 class="mb-0">{{ local.Nome }}</h3>
+										<p class="mb-0">Telefone: {{ local.Telefone }}</p>
+										<p class="mb-0">Preço Médio: R$ 120,00</p>
+									</div>
+								</div>
+
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="mb-5 mt-5">
+					<!-- <div class="mb-5 mt-5">
+						<div class="row">
+							<div class="col-md-5">
+								<h4 class="text-center">
+									<img src="assets/350x150.png" alt="" height="50"> Diferenciado FC
+								</h4>
+							</div>
+							<div class="col-md-2">
+								<div class="text-center">
+									<h5>X</h5>
+									<p class="mb-0 text-muted">Nome da Quadra</p>
+									<small class="text-muted">10/11/2018 - 20:30</small>
+								</div>
+							</div>
+							<div class="col-md-5">
+								<h4 class="text-center">
+									Duarte FC <img src="assets/350x150.png" alt="" height="50">
+								</h4>
+							</div>
+						</div>
+					</div> -->
+
 					<div class="row">
-						<div class="col-md-5">
-							<h4 class="text-center">
-								<img src="assets/350x150.png" alt="" height="50"> Diferenciado FC
-							</h4>
+						<div class="col-md-6">
+							<button class="btn btn-primary float-right" type="submit">CONFIRMAR</button>
 						</div>
-						<div class="col-md-2">
-							<div class="text-center">
-								<h5>X</h5>
-								<p class="mb-0 text-muted">Nome da Quadra</p>
-								<small class="text-muted">10/11/2018 - 20:30</small>
-							</div>
-						</div>
-						<div class="col-md-5">
-							<h4 class="text-center">
-								Duarte FC <img src="assets/350x150.png" alt="" height="50">
-							</h4>
+						<div class="col-md-6">
+							<button class="btn btn-secondary float-left" type="reset">CANCELAR</button>
 						</div>
 					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-6">
-						<button class="btn btn-secondary float-right">CANCELAR</button>
-					</div>
-					<div class="col-md-6">
-						<button class="btn btn-primary float-left">CONFIRMAR</button>
-					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>

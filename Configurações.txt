@@ -1,0 +1,19 @@
+## Configurações Azure ##
+
+URL SITE:
+http://seutime.azurewebsites.net
+
+Acesso portal
+alu201519008@alunos.uniritter.edu.br
+010203
+
+Acesso FTP
+Ip:ftp://waws-prod-dm1-027.ftp.azurewebsites.windows.net
+seutime\$seutime
+pvcE4ugBgvvnr0f4ootn0fRL6r91vhisE04fime7XntqjKQjFqsx2dN6Gtvd
+
+
+mySQL
+seutime.mysql.database.azure.com
+seutime@seutime
+Machado*12

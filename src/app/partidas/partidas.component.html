@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-11">
+		<div class="col-md-12">
 			<div class="painel">
 				<div class="row mb-4">
 					<div class="col-md-12">
@@ -31,79 +31,32 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr class="text-center">
+									<tr *ngFor="let partida of partidas" class="text-center">
 										<td class="align-middle">
-											<h5>Diferenciado FC</h5>
+											<h5>{{ partida.TimeA.Nome }}</h5>
 										</td>
 										<td>
 											<h6>
 												<div class="placar">
-													1
+													{{ partida.PlacarTimeA }}
 												</div>
 												X
 												<div class="placar">
-													4
+													{{ partida.PlacarTimeB }}
 												</div>
 											</h6>
-											<p class="mb-0 text-muted">Nome da Quadra</p>
-											<small class="text-muted">10/11/2018 - 20:30</small>
+											<p class="mb-0 text-muted">{{ partida.LocalPartida.Nome }}</p>
+											<small class="text-muted">{{ partida.Data | date:'dd/MM/yyyy HH:mm' }}</small>
 										</td>
 										<td class="align-middle">
-											<h5>Duarte FC</h5>
+											<h5>{{ partida.TimeB.Nome }}</h5>
 										</td>
 										<td class="align-middle">
-											<h6 class="text-success">Finalizado</h6>
+											<h6 class="text-success">{{ partida.SituacaoPartida.Descricao }}</h6>
 										</td>
 
 									</tr>
-									<tr class="text-center">
-										<td class="align-middle">
-											<h5>Diferenciado FC</h5>
-										</td>
-										<td>
-											<h6>
-												<div class="placar">
-													3
-												</div>
-												X
-												<div class="placar">
-													2
-												</div>
-											</h6>
-											<p class="mb-0 text-muted">Nome da Quadra</p>
-											<small class="text-muted">10/11/2018 - 20:30</small>
-										</td>
-										<td class="align-middle">
-											<h5>Duarte FC</h5>
-										</td>
-										<td class="align-middle">
-											<h6 class="text-muted">Em Andamento</h6>
-										</td>
-									</tr>
-									<tr class="text-center">
-										<td class="align-middle">
-											<h5>Diferenciado FC</h5>
-										</td>
-										<td>
-											<h6>
-												<div class="placar">
-													2
-												</div>
-												X
-												<div class="placar">
-													0
-												</div>
-											</h6>
-											<p class="mb-0 text-muted">Nome da Quadra</p>
-											<small class="text-muted">10/11/2018 - 20:30</small>
-										</td>
-										<td class="align-middle">
-											<h5>Duarte FC</h5>
-										</td>
-										<td class="align-middle">
-											<h6 class="text-success">Finalizado</h6>
-										</td>
-									</tr>
+
 								</tbody>
 							</table>
 						</div>

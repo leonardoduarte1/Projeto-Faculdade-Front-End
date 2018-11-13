@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-11">
+		<div class="col-md-12">
 			<div class="painel">
 				<div class="row mb-4">
 					<div class="col-md-12">
@@ -31,12 +31,12 @@
 				</div>
 				<div class="row">
 
-					<div class="col-md-4">
+					<div class="col-md-4" *ngFor="let time of times">
 						<div class="card">
 							<div class="card-body">
 								<div class="row">
 									<div class="col-md-8">
-										<h5 class="card-title">Diferenciado FC</h5>
+										<h5 class="card-title">{{ time.Nome }}</h5>
 									</div>
 									<div class="col-md-4">
 										<img src="assets/350x150.png" alt="" class="img-fluid">
@@ -61,12 +61,12 @@
 								</div>
 								<div>
 									<small><i class="material-icons font21 alinhar-icones">
-												my_location
-													</i> Número de jogos: 10
+												event
+													</i> Data de Criação: {{ time.DataCriacao | date:'dd/MM/yyyy' }}
 										</small><br>
 									<small><i class="material-icons font21 alinhar-icones">
 												room
-												</i> Local do Time: Porto Alegre/RS
+												</i> Local do Time: {{ time.Cidade.Nome }}/{{ time.Estado.Sigla }}
 										</small>
 								</div>
 								<hr>
@@ -74,7 +74,7 @@
 								<div>
 									<div class="row">
 										<div class="col-md-12 text-right">
-											<a routerLink="/partidas/marcar" class="link-principal">
+											<a routerLink="/partidas/marcar/{{time.Id}}" class="link-principal">
 												<i class="material-icons alinhar-icones">
 													done_all
 												</i>

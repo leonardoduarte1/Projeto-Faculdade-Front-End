@@ -9,4 +9,5 @@ export class Time {
 	public IdEstado: number;
 	public Emblema: string;
 	public Senha: string;
+	public DataCriacao: Date;
 }

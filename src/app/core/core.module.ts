@@ -9,6 +9,7 @@ import { ParametrosService } from "./servicos/parametros.service";
 import { AutenticacaoService } from "./servicos/autenticacao.service";
 import { AutenticacaoGuard } from "./servicos/autenticacao-guard.service";
 import { JogadorService } from "./servicos/jogador.service";
+import { PartidaService } from "./servicos/partida.service";
 
 @NgModule({
 	imports: [
@@ -23,7 +24,8 @@ import { JogadorService } from "./servicos/jogador.service";
 		ParametrosService,
 		AutenticacaoService,
 		AutenticacaoGuard,
-		JogadorService
+		JogadorService,
+		PartidaService
 	]
 })
 export class CoreModule { }
