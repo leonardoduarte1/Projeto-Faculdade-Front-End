@@ -17,6 +17,8 @@ export class CadastroComponent implements OnInit {
 	public estados: any;
 	public cidades: any;
 	public bairros: any;
+	selectedFile: File;
+
 	constructor(
 		private timeService: TimeService,
 		private parametros: ParametrosService,
@@ -34,6 +36,15 @@ export class CadastroComponent implements OnInit {
 			}
 		})
 	}
+
+	onFileChanged(event) {
+		this.time.Emblema = event.target.files[0];
+
+		this.timeService.onUpload(this.time.Emblema, this.time.Nome);
+
+		console.log(this.time.Emblema);
+	}
+
 
 	comboCidades(idEstado) {
 		this.parametros.getCidades(idEstado)

@@ -44,7 +44,7 @@ export class AutenticacaoService {
 		localStorage.removeItem("idTokenVarzea");
 		localStorage.removeItem("time");
 		this.token_id = undefined;
-		window.location.href = CONFIG.URL_SISTEMA + "/entrar";
+		window.location.reload();
 
 	}
 }

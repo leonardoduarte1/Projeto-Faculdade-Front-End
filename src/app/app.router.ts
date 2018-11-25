@@ -10,12 +10,18 @@ import { LoginComponent } from "./login/login.component";
 import { JogadoresComponent } from "./jogadores/jogadores.component";
 import { PartidasComponent } from "./partidas/partidas.component";
 import { AutenticacaoGuard } from "./core/servicos/autenticacao-guard.service";
+import { SumulaComponent } from "./sumula/sumula.component";
 
 
 const routes: Routes = [
 	{
 		path: '',
 		component: HomeComponent,
+		canActivate: [AutenticacaoGuard]
+	},
+	{
+		path: 'sumula/:id',
+		component: SumulaComponent,
 		canActivate: [AutenticacaoGuard]
 	},
 	{
@@ -60,7 +66,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [RouterModule.forRoot(routes, { useHash: true })],
+	imports: [RouterModule.forRoot(routes, { useHash: false })],
 	exports: [RouterModule]
 })
 export class AppRouter { }

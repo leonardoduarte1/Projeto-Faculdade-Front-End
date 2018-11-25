@@ -1,4 +1,4 @@
-<app-menu *ngIf="exibirMenu"></app-menu>
+<app-menu *ngIf="exibirMenu" (ocultarMenu)="ocultarMenu($event)"></app-menu>
 <main>
 	<router-outlet></router-outlet>
 </main>

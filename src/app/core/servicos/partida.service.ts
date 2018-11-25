@@ -35,6 +35,12 @@ export class PartidaService {
 		return this.http.get(CONFIG.URL_API + "/api/partida/listar", { params });
 	}
 
+	public getDadosSumulaPartida(id) {
+
+		return this.http.get(CONFIG.URL_API + "/api/partida/preenchersumula/" + id);
+	}
+
+
 	public buscarTimePeloId(id) {
 
 		return this.http.get(CONFIG.URL_API + "/api/time/" + id);
@@ -47,4 +53,20 @@ export class PartidaService {
 		return this.http.post<Partida>(CONFIG.URL_API + "/api/partida", partida, this.httpOptions);
 
 	}
+
+	public alterarSituacao(idPartida, idSituacao) {
+
+		let params = new HttpParams();
+
+		params = params.append('idPartida', idPartida);
+		params = params.append('idSituacao', idSituacao);
+
+		return this.http.get(CONFIG.URL_API + "/api/partida/alterarsituacao", { params });
+	}
+
+	public encerrar(idPartida, partida) {
+
+		return this.http.put(CONFIG.URL_API + "/api/partida/encerrar/" + idPartida, partida);
+	}
+
 }

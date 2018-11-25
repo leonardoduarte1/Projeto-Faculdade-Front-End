@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AutenticacaoService } from "../core/servicos/autenticacao.service";
 import { Router } from "@angular/router";
 import { CONFIG } from "../../environments/environment";
+import { NotificacaoService } from "src/app/core/servicos/notificacao.service";
 
 @Component({
 	selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
 
 	constructor(
 		private autenticacaoService: AutenticacaoService,
+		private notificacaoService: NotificacaoService,
 		private router: Router) { }
 
 	ngOnInit() {
@@ -25,11 +27,21 @@ export class LoginComponent implements OnInit {
 		this.autenticacaoService.autenticar(this.email, this.senha)
 			.subscribe(
 			(resposta: any) => {
+				let time = resposta;
+				localStorage.setItem("time", JSON.stringify(time));
+				localStorage.setItem("idTokenVarzea", time.Id);
 
-				localStorage.setItem("time", JSON.stringify(resposta));
-				localStorage.setItem("idTokenVarzea", resposta.Id);
 
-				window.location.href = CONFIG.URL_SISTEMA + "/";
+				this.notificacaoService.preencherSumula(time.Id)
+					.subscribe((resposta: any) => {
+						console.log(resposta);
+						if (resposta)
+							window.location.href = CONFIG.URL_SISTEMA + "/sumula/" + time.Id;
+						else
+							window.location.href = CONFIG.URL_SISTEMA + "/";
+					});
+
+
 			},
 			(err) => {
 				this.mensagem = err.message;

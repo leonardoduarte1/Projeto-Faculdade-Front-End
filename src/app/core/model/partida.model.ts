@@ -1,3 +1,5 @@
+
+
 export class Partida {
 	public Id: number;
 	public DataPartida: string;
@@ -8,4 +10,5 @@ export class Partida {
 	public IdSituacao: number;
 	public PlacarTimeA: number;
 	public PlacarTimeB: number;
+
 }

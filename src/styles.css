@@ -326,3 +326,9 @@ input:-webkit-autofill:active {
 	border: 5px solid #00796b;
 	
 }
+
+.form-placar {
+    width: 60px;
+	display: inline-block;
+	text-align: center;
+}

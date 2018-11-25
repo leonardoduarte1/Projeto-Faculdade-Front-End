@@ -13,8 +13,8 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="text-center">
-								<h5>Lorem ipsum</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+								<h5>Cadastrar</h5>
+								<p>Preencha suas informações para criar seu time.</p>
 							</div>
 						</div>
 					</div>
@@ -28,7 +28,7 @@
 
 								<div class="form-group">
 									<label for="">Emblema</label>
-									<input type="file" class="form-control">
+									<input type="file" class="form-control" (change)="onFileChanged($event)">
 								</div>
 
 								<div class="form-group">
@@ -43,7 +43,7 @@
 
 								<div class="form-group">
 									<label for="">Celular</label>
-									<input type="text" class="form-control" required [(ngModel)]="time.Telefone" name="Telefone">
+									<input type="text" class="form-control" mask="(00) 00000-0000" required [(ngModel)]="time.Telefone" name="Telefone">
 								</div>
 
 								<div class="form-group">

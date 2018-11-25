@@ -1,0 +1,67 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="painel">
+				<div class="row mb-4">
+					<div class="col-md-12">
+						<h3>
+							<i class="material-icons alinhar-icones">
+									done_all
+								</i> Informações da Partida
+						</h3>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sodales, arcu a iaculis feugiat, turpis felis pulvinar ex, nec
+							ullamcorper mi nunc a nulla. Integer libero dolor, auctor vitae luctus eget, pellentesque eu risus.
+						</p>
+					</div>
+
+				</div>
+				<form (ngSubmit)="encerrar()">
+					<div class="row">
+						<div class="col-md-4">
+							<div>
+								<h5 class="text-center">{{ partida?.TimeA.Nome }}</h5>
+								<p><b>Lista de Jogadores</b></p>
+								<ul>
+									<li>GOL - Leonardo</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-4 text-center">
+							<h6>
+								<input type="text" class="form-control form-placar" required [(ngModel)]="partidaEncerrada.PlacarTimeA" name="PlacarTimeA">								X
+								<input type="text" class="form-control form-placar" required [(ngModel)]="partidaEncerrada.PlacarTimeB" name="PlacarTimeB">
+							</h6>
+							<p class=" mb-0 text-muted ">{{ partida?.LocalPartida.Nome }}</p>
+							<small class="text-muted ">{{ partida?.Data | date:'dd/MM/yyyy HH:mm' }}</small>
+						</div>
+						<div class="col-md-4 ">
+							<div>
+								<h5 class="text-center ">{{ partida?.TimeB.Nome }}</h5>
+								<p><b>Lista de Jogadores</b></p>
+								<ul>
+									<li>GOL - Leonardo</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div class="row ">
+						<div class="col-md-6 ">
+							<button class="btn btn-primary float-right " type="submit ">CONFIRMAR</button>
+						</div>
+						<div class="col-md-6 ">
+							<button class="btn btn-secondary float-left " type="reset ">CANCELAR</button>
+						</div>
+					</div>
+
+
+				</form>
+
+
+
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -29,7 +29,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row" *ngIf="times.length > 0">
 
 					<div class="col-md-4" *ngFor="let time of times">
 						<div class="card">
@@ -88,6 +88,12 @@
 								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+
+				<div class="row" *ngIf="mostrarLoading">
+					<div class="col-md-12">
+						<app-loading></app-loading>
 					</div>
 				</div>
 			</div>

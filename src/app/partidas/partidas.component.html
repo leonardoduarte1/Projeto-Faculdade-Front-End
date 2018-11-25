@@ -21,7 +21,7 @@
 					<div class="col-md-12">
 						<div class="table-responsive">
 							<table class="table table-borderless">
-								<caption><small>Atualizado em: 12/10/2018 20:30</small></caption>
+								<caption><small>Atualizado em: {{ dataAtual | date:'dd/MM/yyyy HH:mm' }}</small></caption>
 								<thead>
 									<tr>
 										<th class="text-center">Time da Casa</th>
@@ -52,7 +52,13 @@
 											<h5>{{ partida.TimeB.Nome }}</h5>
 										</td>
 										<td class="align-middle">
-											<h6 class="text-success">{{ partida.SituacaoPartida.Descricao }}</h6>
+											<h6 [ngClass]="{
+												'text-danger': partida.IdSituacao == 2,
+												'text-muted': partida.IdSituacao == 3,
+												'text-success': partida.IdSituacao == 4
+											  }">
+												{{ partida.SituacaoPartida.Descricao }}
+											</h6>
 										</td>
 
 									</tr>

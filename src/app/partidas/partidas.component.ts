@@ -11,6 +11,8 @@ export class PartidasComponent implements OnInit {
 
 	partidas: Partida[];
 	posicoes: any;
+	dataAtual: Date = new Date();
+
 
 	constructor(private partidaService: PartidaService) { }
 

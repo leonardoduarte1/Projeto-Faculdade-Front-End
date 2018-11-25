@@ -16,6 +16,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
 import { JogadoresComponent } from './jogadores/jogadores.component';
 import { PartidasComponent } from './partidas/partidas.component';
+import { SharedModule } from "./shared/shared.module";
+import { SumulaComponent } from './sumula/sumula.component';
 
 
 
@@ -29,13 +31,15 @@ import { PartidasComponent } from './partidas/partidas.component';
 		CadastroComponent,
 		LoginComponent,
 		JogadoresComponent,
-		PartidasComponent
+		PartidasComponent,
+		SumulaComponent
 	],
 	imports: [
 		AppRouter,
 		BrowserModule,
 		FormsModule,
 		NgxMaskModule.forRoot(),
+		SharedModule,
 		CoreModule
 	],
 	providers: [],

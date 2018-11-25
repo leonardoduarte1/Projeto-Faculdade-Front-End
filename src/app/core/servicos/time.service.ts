@@ -49,4 +49,14 @@ export class TimeService {
 		return this.http.post<Time>(CONFIG.URL_API + "/api/time", time, this.httpOptions);
 
 	}
+
+	onUpload(imagem, nomeImagem) {
+		// this.http is the injected HttpClient
+		const uploadData = new FormData();
+		uploadData.append('file', imagem, nomeImagem);
+		this.http.post(CONFIG.URL_API + "/api/time/upload", uploadData)
+			.subscribe((resposta: any) => {
+				console.log(resposta);
+			});
+	}
 }

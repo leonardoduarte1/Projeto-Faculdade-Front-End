@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { AutenticacaoService } from "../../servicos/autenticacao.service";
 
 @Component({
@@ -8,6 +8,9 @@ import { AutenticacaoService } from "../../servicos/autenticacao.service";
 })
 export class MenuComponent implements OnInit {
 
+
+	@Output() ocultarMenu = new EventEmitter();
+
 	constructor(
 		private autenticacaoService: AutenticacaoService) { }
 
@@ -15,6 +18,7 @@ export class MenuComponent implements OnInit {
 	}
 
 	sair() {
+		this.ocultarMenu.emit(true);
 		this.autenticacaoService.sair();
 	}
 }
