@@ -21,7 +21,9 @@ export class MeuTimeComponent implements OnInit {
 				this.jogadores = resposta;
 				console.log(resposta);
 			})
-		console.log(this.time.Id);
+
+
+
 	}
 
 }

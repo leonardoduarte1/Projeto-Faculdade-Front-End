@@ -58,7 +58,7 @@
 
 							<div class="row">
 								<div class="col-md-4" *ngFor="let local of locais">
-									<div class="estadio" (click)="localSelecionado(local)" id="{{local.Id}}" [ngClass]="{'ativo': local.Ativo}">
+									<div class="estadio" (click)="localSelecionado(local)" id="{{local.Id}}">
 
 										<h3 class="mb-0">{{ local.Nome }}</h3>
 										<p class="mb-0">Telefone: {{ local.Telefone }}</p>

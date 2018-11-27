@@ -11,6 +11,7 @@ import { AutenticacaoGuard } from "./servicos/autenticacao-guard.service";
 import { JogadorService } from "./servicos/jogador.service";
 import { PartidaService } from "./servicos/partida.service";
 import { NotificacaoService } from "./servicos/notificacao.service";
+import { ClassificacaoService } from "./servicos/classificacao.service";
 
 @NgModule({
 	imports: [
@@ -27,7 +28,8 @@ import { NotificacaoService } from "./servicos/notificacao.service";
 		AutenticacaoGuard,
 		JogadorService,
 		NotificacaoService,
-		PartidaService
+		PartidaService,
+		ClassificacaoService
 	]
 })
 export class CoreModule { }

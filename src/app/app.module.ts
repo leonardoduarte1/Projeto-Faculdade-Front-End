@@ -18,6 +18,7 @@ import { JogadoresComponent } from './jogadores/jogadores.component';
 import { PartidasComponent } from './partidas/partidas.component';
 import { SharedModule } from "./shared/shared.module";
 import { SumulaComponent } from './sumula/sumula.component';
+import { ConvitesComponent } from './convites/convites.component';
 
 
 
@@ -32,7 +33,8 @@ import { SumulaComponent } from './sumula/sumula.component';
 		LoginComponent,
 		JogadoresComponent,
 		PartidasComponent,
-		SumulaComponent
+		SumulaComponent,
+		ConvitesComponent
 	],
 	imports: [
 		AppRouter,

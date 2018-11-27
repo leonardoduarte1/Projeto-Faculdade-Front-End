@@ -1,0 +1,61 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="painel">
+				<div class="row mb-4">
+					<div class="col-md-12">
+						<h3><i class="material-icons alinhar-icones">
+								mail
+							</i> Convites</h3>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sodales, arcu a iaculis feugiat, turpis felis pulvinar ex, nec
+							ullamcorper mi nunc a nulla. Integer libero dolor, auctor vitae luctus eget, pellentesque eu risus.
+						</p>
+					</div>
+
+				</div>
+
+				<div class="row" *ngIf="convites.length > 0; else nenhum">
+
+					<div class="col-md-12" *ngFor="let convite of convites">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="text-center">
+									<p>Adversário</p>
+									<h4>{{ convite.TimeA.Nome }}</h4>
+									<small>{{ convite.TimeA.Proprietario }}</small>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="text-center">
+									<p>Informações</p>
+									<h6>Local: {{ convite.LocalPartida.Nome }}</h6>
+									<h6>Data/Horário: {{ convite.Data | date:"dd/MM/yyyy HH:mm" }}</h6>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="text-center mt-4">
+									<button class="btn btn-primary" (click)="alterarConvite(convite.Id, 3)">ACEITAR</button>
+									<button class="btn btn-light" (click)="alterarConvite(convite.Id, 1)">RECUSAR</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<ng-template #nenhum>
+					<div class="text-center">
+						Nenhum convite encontrado.
+					</div>
+
+				</ng-template>
+
+				<div class="row" *ngIf="mostrarLoading">
+					<div class="col-md-12">
+						<app-loading></app-loading>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

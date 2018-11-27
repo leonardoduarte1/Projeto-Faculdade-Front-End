@@ -17,7 +17,7 @@
 				<a class="nav-link" routerLink="/partidas/tempo-real">Partidas</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link disabled" href="#">Torneios</a>
+				<a class="nav-link disabled">Torneios</a>
 			</li>
 		</ul>
 
@@ -37,9 +37,12 @@
                 </i></a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="#"><i class="material-icons">
-                    notifications
-                </i></a>
+			<a class="nav-link active" routerLink="/convites">
+
+				<i class="material-icons">
+                    {{ iconNotificacao }}
+				</i>
+			</a>
 		</li>
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -59,11 +62,6 @@
 		</li>
 
 
-		<li class="nav-item">
-			<a class="nav-link" href="#" data-toggle="modal" data-target="#modalExemplo">
-                <i class="material-icons">
-                    info
-                </i></a>
-		</li>
+
 	</ul>
 </nav>

@@ -7,6 +7,7 @@ import { TimeService } from "../core/servicos/time.service";
 import { ActivatedRoute } from "@angular/router";
 import { PartidaService } from "../core/servicos/partida.service";
 import { Router } from "@angular/router";
+import * as jQuery from 'jquery';
 
 declare var bootbox: any;
 
@@ -45,8 +46,9 @@ export class MarcacaoComponent implements OnInit {
 
 
 	localSelecionado(local: LocalPartida) {
+		jQuery(".estadio").removeClass("ativo");
 		this.partida.IdLocalPartida = local.Id;
-		local.Ativo = !local.Ativo;
+		jQuery("#" + local.Id).addClass("ativo");
 	}
 
 	onSubmit() {

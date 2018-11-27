@@ -11,6 +11,7 @@ import { JogadoresComponent } from "./jogadores/jogadores.component";
 import { PartidasComponent } from "./partidas/partidas.component";
 import { AutenticacaoGuard } from "./core/servicos/autenticacao-guard.service";
 import { SumulaComponent } from "./sumula/sumula.component";
+import { ConvitesComponent } from "./convites/convites.component";
 
 
 const routes: Routes = [
@@ -58,8 +59,8 @@ const routes: Routes = [
 		component: LoginComponent
 	},
 	{
-		path: 'torneios/inicio',
-		component: BuscarPartidasComponent,
+		path: 'convites',
+		component: ConvitesComponent,
 		canActivate: [AutenticacaoGuard]
 	},
 

@@ -21,7 +21,8 @@ export class BuscarPartidasComponent implements OnInit {
 			this.times = resposta;
 			this.mostrarLoading = false;
 			console.log(resposta);
-		})
+		});
+
 	}
 
 }

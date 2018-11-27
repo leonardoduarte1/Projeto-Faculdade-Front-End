@@ -327,8 +327,10 @@ input:-webkit-autofill:active {
 	
 }
 
-.form-placar {
+.form-placar, .form-classificacao {
     width: 60px;
 	display: inline-block;
 	text-align: center;
+	margin-left: 10px;
+	margin-right: 10px;
 }

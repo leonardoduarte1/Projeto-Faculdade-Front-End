@@ -3,6 +3,8 @@ import { PartidaService } from "../core/servicos/partida.service";
 import { ActivatedRoute } from "@angular/router";
 import { Partida } from "../core/model/partida.model";
 import { CONFIG } from "src/environments/environment";
+import { Classificacao } from "../core/model/classificacao.model";
+import { ClassificacaoService } from "../core/servicos/classificacao.service";
 
 @Component({
 	selector: 'app-sumula',
@@ -12,10 +14,11 @@ import { CONFIG } from "src/environments/environment";
 export class SumulaComponent implements OnInit {
 
 	partida: Partida;
+	classificacao: Classificacao = new Classificacao();
 	idPartida: string;
 	partidaEncerrada: Partida = new Partida();
 
-	constructor(private partidaService: PartidaService, private route: ActivatedRoute) { }
+	constructor(private partidaService: PartidaService, private classificacaoService: ClassificacaoService, private route: ActivatedRoute) { }
 
 	ngOnInit() {
 
@@ -36,7 +39,9 @@ export class SumulaComponent implements OnInit {
 		} else {
 			this.partidaEncerrada.IdTimeVencedor = 0;
 		}
-
+		this.classificacao.IdTime = this.partida.IdTimeB;
+		this.classificacaoService.inserir(this.classificacao)
+			.subscribe();
 
 		this.partidaService.encerrar(this.idPartida, this.partidaEncerrada)
 			.subscribe((resposta: any) => {

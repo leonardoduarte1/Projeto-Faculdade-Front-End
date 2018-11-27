@@ -17,4 +17,9 @@ export class NotificacaoService {
 		return this.http.get(CONFIG.URL_API + "/api/notificacao/sumula/" + id);
 	}
 
+	public jogoPendente(id) {
+
+		return this.http.get(CONFIG.URL_API + "/api/notificacao/pendente/" + id);
+	}
+
 }

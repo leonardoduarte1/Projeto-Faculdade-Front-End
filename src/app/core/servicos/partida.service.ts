@@ -35,6 +35,11 @@ export class PartidaService {
 		return this.http.get(CONFIG.URL_API + "/api/partida/listar", { params });
 	}
 
+	public getConvitesPartidas(idTime) {
+		return this.http.get(CONFIG.URL_API + "/api/partida/convites/" + idTime);
+	}
+
+
 	public getDadosSumulaPartida(id) {
 
 		return this.http.get(CONFIG.URL_API + "/api/partida/preenchersumula/" + id);

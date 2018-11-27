@@ -17,4 +17,5 @@ export class Time {
 	public Cidade: Cidade;
 	public Estado: Estado;
 	public Bairro: Bairro;
+	public Geral: number;
 }

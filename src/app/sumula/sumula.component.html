@@ -45,6 +45,23 @@
 							</div>
 						</div>
 					</div>
+					<div class="row mt-5">
+						<div class="col-md-12">
+							<h5>Avaliação da Partida</h5>
+						</div>
+						<div class="col-md-3 mt-2">
+							<span>Pontualidade</span>
+							<input type="number" class="form-control form-classificacao" min="1" max="5" [(ngModel)]="classificacao.pontualidade" name="classificacao.pontualidade">
+						</div>
+						<div class="col-md-3 mt-2">
+							<span>Fair Play</span>
+							<input type="number" class="form-control form-classificacao" min="1" max="5" [(ngModel)]="classificacao.fairplay" name="classificacao.fairplay">
+						</div>
+						<div class="col-md-3 mt-2">
+							<span>Nível Tecnico</span>
+							<input type="number" class="form-control form-classificacao" min="1" max="5" [(ngModel)]="classificacao.niveltecnico" name="classificacao.niveltecnico">
+						</div>
+					</div>
 					<hr>
 					<div class="row ">
 						<div class="col-md-6 ">
