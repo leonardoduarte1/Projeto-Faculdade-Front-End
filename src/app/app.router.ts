@@ -12,6 +12,8 @@ import { PartidasComponent } from "./partidas/partidas.component";
 import { AutenticacaoGuard } from "./core/servicos/autenticacao-guard.service";
 import { SumulaComponent } from "./sumula/sumula.component";
 import { ConvitesComponent } from "./convites/convites.component";
+import { EstatisticasComponent } from "./estatisticas/estatisticas.component";
+import { HistoricoComponent } from "./historico/historico.component";
 
 
 const routes: Routes = [
@@ -28,6 +30,16 @@ const routes: Routes = [
 	{
 		path: 'meu-time',
 		component: MeuTimeComponent,
+		canActivate: [AutenticacaoGuard]
+	},
+	{
+		path: 'meu-time/estatisticas/:id',
+		component: EstatisticasComponent,
+		canActivate: [AutenticacaoGuard]
+	},
+	{
+		path: 'meu-time/historico/:id',
+		component: HistoricoComponent,
 		canActivate: [AutenticacaoGuard]
 	},
 	{

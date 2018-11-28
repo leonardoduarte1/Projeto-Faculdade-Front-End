@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="painel">
+				<div class="row mb-4">
+					<div class="col-md-12">
+						<h3><i class="material-icons alinhar-icones">
+								show_chart 
+									</i> Estatísticas</h3>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sodales, arcu a iaculis feugiat, turpis felis pulvinar ex, nec
+							ullamcorper mi nunc a nulla. Integer libero dolor, auctor vitae luctus eget, pellentesque eu risus.
+						</p>
+					</div>
+
+				</div>
+
+				<app-menu-time [id]="id"></app-menu-time>
+
+				<div class="row">
+					<div class="col-md-6">
+						<canvas id="canvasPartidas">{{ chartPartidas }}</canvas>
+					</div>
+					<div class="col-md-6">
+						<canvas id="canvasGols">{{ chartGols }}</canvas>
+					</div>
+				</div>
+
+
+				<div class="row" *ngIf="mostrarLoading">
+					<div class="col-md-12">
+						<app-loading></app-loading>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

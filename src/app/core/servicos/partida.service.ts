@@ -35,6 +35,14 @@ export class PartidaService {
 		return this.http.get(CONFIG.URL_API + "/api/partida/listar", { params });
 	}
 
+	public getHistorico(idTime) {
+		return this.http.get(CONFIG.URL_API + "/api/partida/historico/" + idTime);
+	}
+
+	public getUltimas() {
+		return this.http.get(CONFIG.URL_API + "/api/partida/ultimas");
+	}
+
 	public getConvitesPartidas(idTime) {
 		return this.http.get(CONFIG.URL_API + "/api/partida/convites/" + idTime);
 	}

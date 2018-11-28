@@ -18,7 +18,7 @@ export class PartidasComponent implements OnInit {
 
 
 	ngOnInit() {
-		this.partidaService.getPartidas()
+		this.partidaService.getUltimas()
 			.subscribe((resposta: Partida[]) => {
 				this.partidas = resposta;
 			})

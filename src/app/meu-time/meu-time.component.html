@@ -21,66 +21,8 @@
 				</div>
 				<hr>
 
-				<div class="row">
-					<div class="col-md-2">
-						<div class="text-center">
-							<a routerLink="/meu-time/adicionar-jogador" class="opcoes-meu-time">
-								<i class="material-icons alinhar-icones">
-									list_alt
-								</i>
-								<br>
-								<small>Formação</small>
-							</a>
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="text-center">
-							<a routerLink="/partidas/inicio" class="opcoes-meu-time">
-								<i class="material-icons alinhar-icones">
-									my_location
-								</i>
-								<br>
-								<small>Marcar Jogo</small>
-							</a>
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="text-center">
-							<i class="material-icons alinhar-icones">
-								add_a_photo
-							</i>
-							<br>
-							<small>Adicionar Fotos</small>
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="text-center">
-							<i class="material-icons alinhar-icones">
-							description
-							</i>
-							<br>
-							<small>Histôrico de Jogos</small>
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="text-center">
-							<i class="material-icons alinhar-icones">
-							show_chart
-							</i>
-							<br>
-							<small>Estatísticas</small>
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="text-center">
-							<i class="material-icons alinhar-icones">
-							close
-							</i>
-							<br>
-							<small>Excluir Time</small>
-						</div>
-					</div>
-				</div>
+				<app-menu-time [id]="time.Id"></app-menu-time>
+
 				<hr>
 				<div class="row">
 					<div class="col-md-6">

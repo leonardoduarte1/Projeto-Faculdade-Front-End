@@ -12,6 +12,7 @@ import { JogadorService } from "./servicos/jogador.service";
 import { PartidaService } from "./servicos/partida.service";
 import { NotificacaoService } from "./servicos/notificacao.service";
 import { ClassificacaoService } from "./servicos/classificacao.service";
+import { MenuTimeComponent } from './componentes/menu-time/menu-time.component';
 
 @NgModule({
 	imports: [
@@ -19,8 +20,8 @@ import { ClassificacaoService } from "./servicos/classificacao.service";
 		CommonModule,
 		HttpClientModule
 	],
-	declarations: [MenuComponent, RodapeComponent],
-	exports: [MenuComponent, RodapeComponent],
+	declarations: [MenuComponent, RodapeComponent, MenuTimeComponent],
+	exports: [MenuComponent, RodapeComponent, MenuTimeComponent],
 	providers: [
 		TimeService,
 		ParametrosService,

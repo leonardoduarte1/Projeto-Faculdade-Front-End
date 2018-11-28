@@ -1,0 +1,83 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="painel">
+				<div class="row mb-4">
+					<div class="col-md-12">
+						<h3><i class="material-icons alinhar-icones">
+								description 
+								</i> Histórico de Partidas</h3>
+
+					</div>
+
+				</div>
+				<hr>
+				<app-menu-time [id]="id"></app-menu-time>
+				<hr>
+				<div class="row" *ngIf="partidas.length > 0; else nenhum">
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<table class="table table-borderless">
+								<thead>
+									<tr>
+										<th class="text-center">Time da Casa</th>
+										<th class="text-center">Confronto</th>
+										<th class="text-center">Time de Fora</th>
+										<th class="text-center">Situação</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor="let partida of partidas" class="text-center">
+										<td class="align-middle">
+											<h5>{{ partida.TimeA.Nome }}</h5>
+										</td>
+										<td>
+											<h6>
+												<div class="placar">
+													{{ partida.PlacarTimeA }}
+												</div>
+												X
+												<div class="placar">
+													{{ partida.PlacarTimeB }}
+												</div>
+											</h6>
+											<p class="mb-0 text-muted">{{ partida.LocalPartida.Nome }}</p>
+											<small class="text-muted">{{ partida.Data | date:'dd/MM/yyyy HH:mm' }}</small>
+										</td>
+										<td class="align-middle">
+											<h5>{{ partida.TimeB.Nome }}</h5>
+										</td>
+										<td class="align-middle">
+											<h6 [ngClass]="{
+															'text-danger': partida.IdSituacao == 2,
+															'text-muted': partida.IdSituacao == 3,
+															'text-success': partida.IdSituacao == 4
+														  }">
+												{{ partida.SituacaoPartida.Descricao }}
+											</h6>
+										</td>
+
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<ng-template #nenhum>
+					<div class="text-center">
+						Nenhum convite encontrado.
+					</div>
+
+				</ng-template>
+
+				<div class="row" *ngIf="mostrarLoading">
+					<div class="col-md-12">
+						<app-loading></app-loading>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
