@@ -20,6 +20,7 @@ export class TimeService {
 	};
 
 	idNao: any;
+	nome: any;
 
 	constructor(private http: HttpClient) { }
 
@@ -29,6 +30,10 @@ export class TimeService {
 
 		if (this.idNao) {
 			params = params.append('idNao', this.idNao);
+		}
+		
+		if (this.nome) {
+			params = params.append('nome', this.nome);
 		}
 
 

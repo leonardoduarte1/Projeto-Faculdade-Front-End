@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
 	iconNotificacao: string;
 	@Output() ocultarMenu = new EventEmitter();
 	time: Time = JSON.parse(localStorage.getItem("time"));
+	nome:any = "";
 
 	constructor(
 		private autenticacaoService: AutenticacaoService,
@@ -28,6 +29,10 @@ export class MenuComponent implements OnInit {
 					this.iconNotificacao = "notifications";
 
 			})
+	}
+
+	submit(){
+		console.log("aa" + this.nome);
 	}
 
 	sair() {

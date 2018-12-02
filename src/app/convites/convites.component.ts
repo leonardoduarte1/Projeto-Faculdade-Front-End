@@ -21,7 +21,7 @@ export class ConvitesComponent implements OnInit {
 		this.partidaService.getConvitesPartidas(this.time.Id)
 			.subscribe((resposta: Partida[]) => {
 				this.convites = resposta;
-				console.log(resposta);
+				this.mostrarLoading = false;
 			})
 	}
 

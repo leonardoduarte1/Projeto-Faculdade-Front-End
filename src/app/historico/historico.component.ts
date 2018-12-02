@@ -9,6 +9,7 @@ import { ActivatedRoute } from "@angular/router";
 	styleUrls: ['./historico.component.css']
 })
 export class HistoricoComponent implements OnInit {
+	id: string;
 
 	partidas: Partida[];
 	mostrarLoading: boolean = true;
@@ -21,7 +22,8 @@ export class HistoricoComponent implements OnInit {
 			.subscribe((resposta: Partida[]) => {
 				this.partidas = resposta;
 				this.mostrarLoading = false;
-			})
+			});
+		this.id = this.route.snapshot.params["id"];
 	}
 
 }

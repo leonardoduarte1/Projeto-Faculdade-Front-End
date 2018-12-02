@@ -13,6 +13,7 @@ import { PartidaService } from "./servicos/partida.service";
 import { NotificacaoService } from "./servicos/notificacao.service";
 import { ClassificacaoService } from "./servicos/classificacao.service";
 import { MenuTimeComponent } from './componentes/menu-time/menu-time.component';
+import { EstatisticasService } from "./servicos/estatisticas.service";
 
 @NgModule({
 	imports: [
@@ -30,7 +31,8 @@ import { MenuTimeComponent } from './componentes/menu-time/menu-time.component';
 		JogadorService,
 		NotificacaoService,
 		PartidaService,
-		ClassificacaoService
+		ClassificacaoService,
+		EstatisticasService
 	]
 })
 export class CoreModule { }

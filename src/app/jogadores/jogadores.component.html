@@ -9,30 +9,20 @@
 						</h3>
 						<!-- <hr> -->
 					</div>
+
 					<div class="col-md-auto">
 						<div class="forca-time">
 
-							<i class="material-icons alinhar-icones">
-								star
-								</i>
-							<i class="material-icons alinhar-icones">
-								star
-								</i>
-							<i class="material-icons alinhar-icones">
-								star
-								</i>
-							<i class="material-icons alinhar-icones">
-								star
-								</i>
-							<i class="material-icons alinhar-icones">
-								star_half
+							<i class="material-icons alinhar-icones" *ngFor="let n of [] | iterator:time.Geral">
+							star
 							</i>
 
 						</div>
 					</div>
 				</div>
 				<hr>
-
+				<app-menu-time [id]="time.Id"></app-menu-time>
+				<hr>
 				<div class="row mb-4">
 					<div class="col-md-6">
 						<h4>Sua Escalação</h4>
