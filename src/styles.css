@@ -334,3 +334,10 @@ input:-webkit-autofill:active {
 	margin-left: 10px;
 	margin-right: 10px;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    color: #fff !important;
+}

@@ -14,11 +14,13 @@ export class EstatisticasComponent implements OnInit {
 	chartGols: any;
 	dadosPartidas: string;
 	dadosGols: string;
+	id: string;
 
 	constructor(private estatisticasService: EstatisticasService,
 		private route: ActivatedRoute) { }
 
 	ngOnInit() {
+		this.id = this.route.snapshot.params["id"];
 		this.estatisticasService.gols(this.route.snapshot.params["id"])
 			.subscribe((resposta: any) => {
 				this.dadosGols = resposta;

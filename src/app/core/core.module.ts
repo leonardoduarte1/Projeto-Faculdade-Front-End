@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './componentes/menu/menu.component';
 import { RodapeComponent } from './componentes/rodape/rodape.component';
@@ -15,10 +16,12 @@ import { ClassificacaoService } from "./servicos/classificacao.service";
 import { MenuTimeComponent } from './componentes/menu-time/menu-time.component';
 import { EstatisticasService } from "./servicos/estatisticas.service";
 
+
 @NgModule({
 	imports: [
 		RouterModule,
 		CommonModule,
+		FormsModule,
 		HttpClientModule
 	],
 	declarations: [MenuComponent, RodapeComponent, MenuTimeComponent],
