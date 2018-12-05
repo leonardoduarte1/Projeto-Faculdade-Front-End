@@ -15,6 +15,7 @@ declare var bootbox: any;
 export class ConvitesComponent implements OnInit {
 
     convites: Partida[];
+    convitesEnviados: Partida[];
     time: Time = JSON.parse(localStorage.getItem("time"));
     mostrarLoading: boolean = true;
 
@@ -27,6 +28,13 @@ export class ConvitesComponent implements OnInit {
                 this.convites = resposta;
                 this.mostrarLoading = false;
             })
+
+        this.partidaService.getConvitesEnviados(this.time.Id)
+            .subscribe((resposta: Partida[]) => {
+                this.convitesEnviados = resposta;
+                this.mostrarLoading = false;
+            })
+
     }
 
     alterarConvite(idPartida, idSituacao) {

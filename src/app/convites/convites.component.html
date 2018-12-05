@@ -1,60 +1,101 @@
 <div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="painel">
-				<div class="row mb-4">
-					<div class="col-md-12">
-						<h3><i class="material-icons alinhar-icones">
-								mail
-							</i> Convites</h3>
-						<p>
-							Veja aqui a relação de convites recebidos para jogo que a sua equipe recebeu.
-						</p>
-					</div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="painel">
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <h3><i class="material-icons alinhar-icones">
+                                mail
+                            </i> Convites</h3>
+                        <p>
+                            Veja aqui a relação de convites recebidos para jogo que a sua equipe recebeu.
+                        </p>
+                    </div>
 
-				</div>
+                </div>
+                <hr>
+                <h5>Recebidos</h5>
+                <hr>
+                <div class="row" *ngIf="convites.length > 0; else nenhum">
 
-				<div class="row" *ngIf="convites.length > 0; else nenhum">
+                    <div class="col-md-12" *ngFor="let convite of convites">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <p>Adversário</p>
+                                    <h4>{{ convite.TimeA.Nome }}</h4>
+                                    <small>{{ convite.TimeA.Proprietario }}</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <p>Informações</p>
+                                    <h6>Local: {{ convite.LocalPartida.Nome }}</h6>
+                                    <h6>Data/Horário: {{ convite.Data | date:"dd/MM/yyyy HH:mm" }}</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center mt-4">
+                                    <button class="btn btn-primary" (click)="alterarConvite(convite.Id, 3)">ACEITAR</button>
+                                    <button class="btn btn-light" (click)="alterarConvite(convite.Id, 1)">RECUSAR</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <h5>Enviados</h5>
+                <hr>
+                <div class="row" *ngIf="convitesEnviados.length > 0; else nenhumEnviado">
 
-					<div class="col-md-12" *ngFor="let convite of convites">
-						<div class="row">
-							<div class="col-md-4">
-								<div class="text-center">
-									<p>Adversário</p>
-									<h4>{{ convite.TimeA.Nome }}</h4>
-									<small>{{ convite.TimeA.Proprietario }}</small>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="text-center">
-									<p>Informações</p>
-									<h6>Local: {{ convite.LocalPartida.Nome }}</h6>
-									<h6>Data/Horário: {{ convite.Data | date:"dd/MM/yyyy HH:mm" }}</h6>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="text-center mt-4">
-									<button class="btn btn-primary" (click)="alterarConvite(convite.Id, 3)">ACEITAR</button>
-									<button class="btn btn-light" (click)="alterarConvite(convite.Id, 1)">RECUSAR</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                    <div class="col-md-12 mb-5" *ngFor="let conviteEnviado of convitesEnviados">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <p>Adversário</p>
+                                    <h4>{{ conviteEnviado.TimeA.Nome }}</h4>
+                                    <small>{{ conviteEnviado.TimeA.Proprietario }}</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <p>Informações</p>
+                                    <h6>Local: {{ conviteEnviado.LocalPartida.Nome }}</h6>
+                                    <h6>Data/Horário: {{ conviteEnviado.Data | date:"dd/MM/yyyy HH:mm" }}</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center mt-4">
+                                    <h5 [ngClass]="{ 'text-danger': conviteEnviado.IdSituacao == 2, 'text-muted': conviteEnviado.IdSituacao == 3, 'text-success': conviteEnviado.IdSituacao
+                                    == 4 }">
+                                        {{ conviteEnviado.SituacaoPartida.Descricao }}
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-				<ng-template #nenhum>
-					<div class="text-center">
-						Nenhum convite encontrado.
-					</div>
+                <ng-template #nenhum>
+                    <div class="text-center">
+                        Nenhum convite encontrado.
+                    </div>
 
-				</ng-template>
+                </ng-template>
 
-				<div class="row" *ngIf="mostrarLoading">
-					<div class="col-md-12">
-						<app-loading></app-loading>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                <ng-template #nenhumEnviado>
+                    <div class="text-center">
+                        Nenhum convite enviado encontrado.
+                    </div>
+
+                </ng-template>
+
+                <div class="row" *ngIf="mostrarLoading">
+                    <div class="col-md-12">
+                        <app-loading></app-loading>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
