@@ -308,7 +308,7 @@ input:-webkit-autofill:active {
 	margin-bottom: 10px;
 	padding: 15px;
 	border: 5px solid transparent;
-	background: url("assets/fundo5.jpg");
+	 background: url("assets/imagemQuadra3.jpg");
 	height: 200px;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -321,6 +321,8 @@ input:-webkit-autofill:active {
 	cursor: pointer;
 
 }
+
+
 
 .estadio.ativo{
 	border: 5px solid #00796b;

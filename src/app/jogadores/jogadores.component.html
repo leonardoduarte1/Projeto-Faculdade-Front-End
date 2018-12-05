@@ -1,106 +1,106 @@
 <div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="painel">
-				<div class="row">
-					<div class="col-md-auto">
-						<h3>
-							Diferenciado FC
-						</h3>
-						<!-- <hr> -->
-					</div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="painel">
+                <div class="row">
+                    <div class="col-md-auto">
+                        <h3>
+                            {{time.Nome}}
+                        </h3>
+                        <!-- <hr> -->
+                    </div>
 
-					<div class="col-md-auto">
-						<div class="forca-time">
+                    <div class="col-md-auto">
+                        <div class="forca-time">
 
-							<i class="material-icons alinhar-icones" *ngFor="let n of [] | iterator:time.Geral">
-							star
-							</i>
+                            <i class="material-icons alinhar-icones" *ngFor="let n of [] | iterator:time.Geral">
+                                star
+                            </i>
 
-						</div>
-					</div>
-				</div>
-				<hr>
-				<app-menu-time [id]="time.Id"></app-menu-time>
-				<hr>
-				<div class="row mb-4">
-					<div class="col-md-6">
-						<h4>Sua Escalação</h4>
-					</div>
-					<div class="col-md-6">
-						<h4 class="text-right">{{jogadores.length}}/18</h4>
-					</div>
-				</div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <app-menu-time [id]="time.Id"></app-menu-time>
+                <hr>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h4>Sua Escalação</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="text-right">{{jogadores.length}}/18</h4>
+                    </div>
+                </div>
 
-				<div class="row">
-					<div class="col-md-5">
-						<form (ngSubmit)="inserir()">
-							<div class="form-group">
-								<label for="">Nome do Jogador</label>
-								<input type="text" class="form-control" required [(ngModel)]="jogador.Nome" name="Nome">
-							</div>
-							<div class="form-group">
-								<label for="">E-mail</label>
-								<input type="text" class="form-control" required [(ngModel)]="jogador.Email" name="Email">
-							</div>
-							<div class="form-group">
-								<label for="">Celular</label>
-								<input type="text" class="form-control" mask="(00) 00000-0000" required [(ngModel)]="jogador.Telefone" name="Telefone">
-							</div>
-							<div class="form-group">
-								<label>Posição</label>
-								<select class="form-control" required [(ngModel)]="jogador.IdPosicao" name="IdPosicao">
-									<option value="0" >Selecione...</option>
-									<option *ngFor="let posicao of posicoes" value="{{posicao.Id}}">
-										{{posicao.Nome}}
-									</option>
-								</select>
-							</div>
-							<hr>
-							<div class="form-group">
-								<button class="btn btn-primary">ADICIONAR</button>
-							</div>
-						</form>
+                <div class="row">
+                    <div class="col-md-5">
+                        <form (ngSubmit)="inserir()">
+                            <div class="form-group">
+                                <label for="">Nome do Jogador</label>
+                                <input type="text" class="form-control" required [(ngModel)]="jogador.Nome" name="Nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="">E-mail</label>
+                                <input type="text" class="form-control" required [(ngModel)]="jogador.Email" name="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Celular</label>
+                                <input type="text" class="form-control" mask="(00) 00000-0000" required [(ngModel)]="jogador.Telefone" name="Telefone">
+                            </div>
+                            <div class="form-group">
+                                <label>Posição</label>
+                                <select class="form-control" required [(ngModel)]="jogador.IdPosicao" name="IdPosicao">
+                                    <option value="0">Selecione...</option>
+                                    <option *ngFor="let posicao of posicoes" value="{{posicao.Id}}">
+                                        {{posicao.Nome}}
+                                    </option>
+                                </select>
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <button class="btn btn-primary">ADICIONAR</button>
+                            </div>
+                        </form>
 
-					</div>
-					<div class="offset-md-1 col-md-6">
+                    </div>
+                    <div class="offset-md-1 col-md-6">
 
-						<h4>Elenco</h4>
-						<div class="table-responsive" *ngIf="jogadores.length > 0; else elseBlock">
-							<table class="table table-borderless">
-								<caption>Técnico: {{time.Proprietario}}</caption>
-								<tbody>
-									<tr *ngFor="let jogador of jogadores">
-										<td>{{ jogador.Posicao.Sigla }}</td>
-										<td>{{ jogador.Nome }}</td>
-										<td>
-											<a href="" class="actions">
-												<i class="material-icons">
-													description
-												</i>
-											</a>
-											<a href="" class="actions">
-												<i class="material-icons">
-													edit
-												</i>
-											</a>
-											<a href="" class="actions text-danger">
-												<i class="material-icons">
-													clear
-												</i>
-											</a>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<ng-template #elseBlock>Nenhum jogador cadastrado ainda.</ng-template>
-
-
+                        <h4>Elenco</h4>
+                        <div class="table-responsive" *ngIf="jogadores.length > 0; else elseBlock">
+                            <table class="table table-borderless">
+                                <caption>Técnico: {{time.Proprietario}}</caption>
+                                <tbody>
+                                    <tr *ngFor="let jogador of jogadores">
+                                        <td>{{ jogador?.Posicao.Sigla }}</td>
+                                        <td>{{ jogador.Nome }}</td>
+                                        <td>
+                                            <a href="" class="actions">
+                                                <i class="material-icons">
+                                                    description
+                                                </i>
+                                            </a>
+                                            <a href="" class="actions">
+                                                <i class="material-icons">
+                                                    edit
+                                                </i>
+                                            </a>
+                                            <a href="" class="actions text-danger">
+                                                <i class="material-icons">
+                                                    clear
+                                                </i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <ng-template #elseBlock>Nenhum jogador cadastrado ainda.</ng-template>
 
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -3,18 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-	production: false
+    production: false
+};
+
+export const CONFIG = {
+    URL_API: "https://seutime.azurewebsites.net/integracao",
+    URL_SISTEMA: "https://seutime.azurewebsites.net"
 };
 
 // export const CONFIG = {
-// 	URL_API: "https://seutime.azurewebsites.net/integracao",
-// 	URL_SISTEMA: "https://seutime.azurewebsites.net"
+// 	URL_API: "http://localhost:56765",
+// 	URL_SISTEMA: "http://localhost:4200"
 // };
-
-export const CONFIG = {
-	URL_API: "http://localhost:56765",
-	URL_SISTEMA: "http://localhost:4200"
-};
 
 /*
  * In development mode, for easier debugging, you can ignore zone related error
